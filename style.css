@@ -388,6 +388,7 @@ button {
 .testimonial {
   display: flex;
   margin: 32px 0px;
+  max-width: 1200px;
 }
 
 .testimonial__avatar {
