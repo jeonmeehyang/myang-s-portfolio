@@ -29,7 +29,15 @@ homeContactButton.addEventListener('click', () => {
     scrollIntoView('#contact');
 });
 
+
+
+const home__container = document.querySelector('.home__container');
+const homeHeight = home.getBoundingClientRect().height;
+document.addEventListener('scroll', ()=> {
+    home__container.style.opacity = 1 - window.scrollY / homeHeight;
+});
+
 function scrollIntoView(selector) {
     const scrollTo = document.querySelector(selector);
     scrollTo.scrollIntoView({behavior: 'smooth' });
-}
+};
