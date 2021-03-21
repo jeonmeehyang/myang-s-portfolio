@@ -4,8 +4,6 @@
 const navbar = document.querySelector('#navbar');
 const navbarHeight = navbar.getBoundingClientRect().height;
 document.addEventListener('scroll', () => {
-
-  console.log(`navbarHeight: ${navbarHeight}`);
   if(window.scrollY > navbarHeight) {
       navbar.classList.add('navbar__dark');
   } else {
@@ -13,5 +11,15 @@ document.addEventListener('scroll', () => {
   }
 });
 
-
-
+// 메뉴 버튼 클릭 - > 해당 메뉴 scroll 이동
+const navbarMenu = document.querySelector('.navbar__menu');
+navbarMenu.addEventListener('click', (event) => {
+    const target = event.target;
+    const link = target.dataset.link;
+    if (link == null) {
+        return;
+    }
+    console.log(event.target.dataset.link);
+    const scrollTo = document.querySelector(link);
+    scrollTo.scrollIntoView({ behavior: 'smooth'});
+});
