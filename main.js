@@ -37,6 +37,21 @@ document.addEventListener('scroll', ()=> {
     home__container.style.opacity = 1 - window.scrollY / homeHeight;
 });
 
+// scroll 내리면 arrow-up 버튼이 생기고 올리면 사라지는
+const arrowUp = document.querySelector('.arrow-up');
+document.addEventListener('scroll', () => {
+    if (window.scrollY > homeHeight / 2) {
+        arrowUp.classList.add('visible');
+    } else {
+        arrowUp.classList.remove('visible');
+    }
+});
+
+// Handle click on the "arrow-up" button
+arrowUp.addEventListener('click', () => {
+    scrollIntoView('#home');
+});
+
 function scrollIntoView(selector) {
     const scrollTo = document.querySelector(selector);
     scrollTo.scrollIntoView({behavior: 'smooth' });
