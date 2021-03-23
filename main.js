@@ -53,7 +53,7 @@ arrowUp.addEventListener('click', () => {
 });
 
 
-// Projects
+// Projects fillering
 const workBtnContainer = document.querySelector('.work__categories');
 const projectContainer = document.querySelector('.work__projects');
 const projects = document.querySelectorAll('.project');
@@ -75,6 +75,14 @@ workBtnContainer.addEventListener('click', (e) => {
     projectContainer.classList.remove('anim-out');
    }, 300);
 });
+
+// Remove selection -> new selecttion
+const active = document.querySelector('.category__btn.selected');
+active.classList.remove('selected');
+const target =
+e.target.nodeName === 'BUTTON' ? e.target : e.target.parentNode;
+e.target.classList.add('selected');
+
 
 function scrollIntoView(selector) {
     const scrollTo = document.querySelector(selector);
